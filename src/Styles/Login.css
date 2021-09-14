@@ -1,0 +1,120 @@
+.sm-text {
+  font-size: 13px;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.btn {
+  padding: 10px;
+  background: #510ade;
+  background: linear-gradient(137deg, #510ade 0%, #510ade 41%, #b000e4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
+  border-style: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #4802d4;
+}
+
+.title-text {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.section__login {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  padding: 2rem;
+  height: auto;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.container .form__wrapper {
+  width: 100%;
+}
+
+.container .form__wrapper .form-group {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .form__wrapper .form-group input {
+  padding: 10px;
+  border-style: solid;
+  border-color: aquamarine;
+  border-radius: 5px;
+  outline: none;
+}
+
+.container .form__wrapper .form-group input:focus {
+  border-color: rgba(81, 10, 222, 0.493);
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 1rem;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 920px) {
+  .container {
+    padding: 1rem;
+    width: 60%;
+  }
+}
+/*# sourceMappingURL=Login.css.map */
