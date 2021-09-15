@@ -32,23 +32,23 @@ const Registration = (props) => {
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label className="sm-text">Full Name</label>
-                            <input className="form-input" name="fullname" value={fullname} onChange={(e)=>setFullname(e.target.value)}></input>
+                            <input className="form-input" name="fullname" value={fullname} onChange={(e)=>setFullname(e.target.value)} required></input>
                         </div>
                         <div className="form-group">
                             <label className="sm-text">Email</label>
-                            <input className="form-input" type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
+                            <input className="form-input" type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
                         </div>
                         <div className="form-group">
                             <label className="sm-text">Password</label>
-                            <input className="form-input" type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+                            <input className="form-input" type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} required></input>
                         </div>
                         <div className="form-group">
                             <label className="sm-text">Confirm Password</label>
-                            <input className="form-input" type="password" name="confirm-password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}></input>
+                            <input className="form-input" type="password" name="confirm-password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} required></input>
                         </div>
                         <div className="form-group">
                             <label className="sm-text">Branch Office</label>
-                            <input className="form-input" name="barnch-office" value={branchOffice} onChange={(e)=>setBranchOffice(e.target.value)}></input>
+                            <input className="form-input" name="barnch-office" value={branchOffice} onChange={(e)=>setBranchOffice(e.target.value)} required></input>
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn text-white">Sign up</button>
