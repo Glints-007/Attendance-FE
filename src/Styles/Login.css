@@ -24,13 +24,13 @@
 
 .btn {
   padding: 10px;
-  background: #510ade;
-  background: linear-gradient(137deg, #510ade 0%, #510ade 41%, #b000e4 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
   border-style: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  background: #510ade;
+  background: linear-gradient(137deg, #510ade 0%, #510ade 41%, #b000e4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
 }
 
 .btn:hover {
@@ -63,6 +63,11 @@
 }
 
 .container {
+  background-color: #fff;
+  padding: 2rem;
+  height: auto;
+  width: 30%;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,11 +75,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #fff;
-  padding: 2rem;
-  height: auto;
-  width: 30%;
-  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container .form__wrapper {
