@@ -5,6 +5,8 @@ import { history } from './Helpers';
 import { Login } from './Pages/Login';
 import { Dashboard } from './Pages/Dashboard';
 import { About } from './Pages/About';
+import { Registration } from './Pages/Registration';
+import ForgotPassword from './Pages/ForgotPassword';
 
 
 function App() {
@@ -14,9 +16,11 @@ function App() {
         <Router history={history}>
           <Switch>
                 <Route path="/login" component={Login} />
+                <Route path="/register" component={Registration} />
+                <Route path="/forgot-password" component={ForgotPassword} />
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/about" component={About} />
-                <Redirect from="*" to="/" />
+                <Redirect from="*" to="/login" />
           </Switch>
         </Router>
     </div>

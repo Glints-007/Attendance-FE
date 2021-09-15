@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
 import '../Styles/Login.css'
 
@@ -34,14 +35,14 @@ const Login = (props) => {
                         <div className="form-group">
                             <label className="sm-text">Password</label>
                             <input className="form-input" type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
-                            <span className="text-right sm-text w-100"><a href="/">Forgot Password?</a></span>
+                            <span className="text-right sm-text w-100"><Link to="/forgot-password">Forgot Password?</Link></span>
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn text-white">Login</button>
                         </div>
                     </form>
                 </div>
-                <span className="p-relative text-center sm-text w-100">Don'have an account? <a href="/">Register here</a></span>
+                <span className="p-relative text-center sm-text w-100">Don'have an account? <Link to="/register">Register here</Link></span>
             </div>
         </div>
     )   
