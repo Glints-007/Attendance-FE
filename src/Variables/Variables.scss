@@ -1,0 +1,33 @@
+$blackColor: #333;
+$whiteColor:#fff;
+$primaryColor:rgb(81,10,222);
+
+$headingText: 32px;
+$subheadingText: 24px;
+$bodyText: 16px;
+$smallText: 13px;
+
+
+@mixin flexCenter($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin gradientColor() {
+    background: rgb(81,10,222);
+    background: -moz-linear-gradient(137deg, rgba(81,10,222,1) 0%, rgba(81,10,222,1) 41%, rgba(176,0,228,1) 100%);
+    background: -webkit-linear-gradient(137deg, rgba(81,10,222,1) 0%, rgba(81,10,222,1) 41%, rgba(176,0,228,1) 100%);
+    background: linear-gradient(137deg, rgba(81,10,222,1) 0%, rgba(81,10,222,1) 41%, rgba(176,0,228,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
+}
+
+@mixin buttonStyle() {
+    padding: 10px;
+    border-style: none;
+    border-radius: 5px;
+    font-size: $bodyText;
+    cursor: pointer;
+    @include gradientColor();
+}
