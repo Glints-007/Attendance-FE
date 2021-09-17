@@ -2,6 +2,10 @@
   font-size: 13px;
 }
 
+.alert-text {
+  color: red;
+}
+
 .p-relative {
   position: relative;
 }

@@ -5,7 +5,6 @@ import '../Styles/Login.css'
 const ForgotPassword = (props) => {
     const [email, setEmail] = useState();
     const [submitted, setSubmitted] = useState(false);
-    
 
     const handleSubmit = (event) => {
         event.preventDefault();
