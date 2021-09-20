@@ -26,7 +26,7 @@
   text-align: right;
 }
 
-.btn {
+.custBtn {
   padding: 10px;
   border-style: none;
   border-radius: 5px;
@@ -37,7 +37,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
 }
 
-.btn:hover {
+.custBtn:hover {
   background: #4802d4;
 }
 
@@ -66,7 +66,7 @@
           align-items: center;
 }
 
-.container {
+.custContainer {
   background-color: #fff;
   padding: 2rem;
   height: auto;
@@ -87,11 +87,11 @@
           align-items: center;
 }
 
-.container .form__wrapper {
+.custContainer .form__wrapper {
   width: 100%;
 }
 
-.container .form__wrapper .form-group {
+.custContainer .form__wrapper .cust-form-group {
   margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,7 +102,7 @@
           flex-direction: column;
 }
 
-.container .form__wrapper .form-group input {
+.custContainer .form__wrapper .cust-form-group input {
   padding: 10px;
   border-style: solid;
   border-color: aquamarine;
@@ -110,19 +110,19 @@
   outline: none;
 }
 
-.container .form__wrapper .form-group input:focus {
+.custContainer .form__wrapper .cust-form-group input:focus {
   border-color: rgba(81, 10, 222, 0.493);
 }
 
 @media screen and (max-width: 375px) {
-  .container {
+  .custContainer {
     padding: 1rem;
     width: 90%;
   }
 }
 
 @media screen and (min-width: 376px) and (max-width: 920px) {
-  .container {
+  .custContainer {
     padding: 1rem;
     width: 60%;
   }

@@ -28,7 +28,7 @@
     text-align: right;
 }
 
-.btn{
+.custBtn{
     @include buttonStyle();
 
     &:hover{
@@ -49,7 +49,7 @@
     @include flexCenter(column);
 }
 
-.container{
+.custContainer{
     background-color: $whiteColor;
     padding: 2rem;
     height: auto;
@@ -60,7 +60,7 @@
     .form__wrapper{
         width: 100%;
         
-        .form-group{
+        .cust-form-group{
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
@@ -81,7 +81,7 @@
 }
 
 @media screen and (max-width:375px) {
-    .container{
+    .custContainer{
         padding: 1rem;
         width: 90%;
     }
@@ -89,7 +89,7 @@
 
 
 @media screen and (min-width:376px) and (max-width:920px){
-    .container{
+    .custContainer{
         padding: 1rem;
         width: 60%;
     }

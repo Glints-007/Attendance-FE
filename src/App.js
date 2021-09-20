@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PrivateRoute } from './Components';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { history } from './Helpers';

@@ -4,9 +4,9 @@ const RenderAuthButton = (props) => {
     const {btnName, submitted} = props;
     
     if (submitted) {
-        return <button type="submit" className="btn text-white" >Loading...</button>
+        return <button type="submit" className="custBtn text-white" >Loading...</button>
     } else {
-        return <button type="submit" className="btn text-white">{btnName}</button>
+        return <button type="submit" className="custBtn text-white">{btnName}</button>
     }
 }
 

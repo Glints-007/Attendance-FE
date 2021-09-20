@@ -4,16 +4,25 @@ export const userService = {
     login,
     logout,
     register,
+    getAll,
 };
 
-function login(email, password) {
+async function login(email, password) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit,
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer',
         body: JSON.stringify({ email, password })
     };
 
-    return fetch("http://localhost:8000/api/login", requestOptions)
+    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/login", requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -37,9 +46,17 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch("http://localhost:8000/api/register", requestOptions).then(handleResponse);
+    return fetch("https://floating-journey-97236.herokuapp.com/api/v1/register", requestOptions).then(handleResponse);
 }
 
+function getAll() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch("https://floating-journey-97236.herokuapp.com/api/v1/users/verified", requestOptions).then(handleResponse);
+}
 
 function handleResponse(response) {
     return response.text().then(text => {
