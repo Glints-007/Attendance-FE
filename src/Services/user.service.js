@@ -4,6 +4,8 @@ export const userService = {
     login,
     logout,
     register,
+    forgotPassword,
+    resetPassword,
     getAll,
 };
 
@@ -25,7 +27,6 @@ async function login(email, password) {
     return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/login", requestOptions)
         .then(handleResponse)
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
             sessionStorage.setItem('user', JSON.stringify(user));
 
@@ -39,23 +40,44 @@ function logout() {
     sessionStorage.removeItem('user');
 }
 
-function register(user) {
+async function register(user) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch("https://floating-journey-97236.herokuapp.com/api/v1/register", requestOptions).then(handleResponse);
+    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/register", requestOptions).then(handleResponse);
 }
 
-function getAll() {
+async function getAll() {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch("https://floating-journey-97236.herokuapp.com/api/v1/users/verified", requestOptions).then(handleResponse);
+    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/users/verified", requestOptions).then(handleResponse);
+}
+
+async function forgotPassword(email) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({email})
+    };
+
+    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/forgot", requestOptions).then(handleResponse);
+}
+
+
+async function resetPassword(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    };
+
+    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/reset", requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

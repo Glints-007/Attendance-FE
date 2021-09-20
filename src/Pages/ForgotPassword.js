@@ -1,29 +1,43 @@
 import React, {useState} from 'react'
+import { connect } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { userActions } from '../Actions';
 import '../Styles/Login.css'
 
 const ForgotPassword = (props) => {
     const [email, setEmail] = useState();
     const [submitted, setSubmitted] = useState(false);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(email);
+    const { register, handleSubmit, formState: { errors } } = useForm({});
+    
+    const handleSubmitForm = () => {
+        setSubmitted(true);
+        props.forgotPassword(email);
     }
 
     return (
         <div className="section__login" style={{  backgroundImage: `url(${process.env.PUBLIC_URL + '/img/background-login.jpg'})` }}>
-            <div className="container">
+            <div className="custContainer">
                 <h1 className="title-text text-center">Forgot Password</h1>
                 <span className="text-center sm-text" style={{marginBottom: '20px'}}>Enter your email and we'll send you a link back to your account.</span>
                 <div className="form__wrapper">
                     <form onSubmit={handleSubmit}>
-                        <div className="form-group">
+                        <div className="cust-form-group">
                             <label className="sm-text">Email</label>
-                            <input className="form-input" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
+                            <input className="form-input" {...register("email", { 
+                                                                                        required: 'This field is required',  
+                                                                                        pattern: {
+                                                                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                                                                            message: "Invalid email address"
+                                                                                        }})}  
+                                                                                        value={email} 
+                                                                                        onChange={(e)=>setEmail(e.target.value)}>
+
+                            </input>
+                            {errors.email && <span className="sm-text alert-text">{errors.email.message}</span>}
                         </div>
-                        <div className="form-group">
-                            <button type="submit" className="btn text-white">Send Email Notification</button>
+                        <div className="cust-form-group">
+                            <button type="submit" className="custBtn text-white" onClick={handleSubmit(handleSubmitForm)}>Send Email Notification</button>
                         </div>
                     </form>
                 </div>
@@ -33,4 +47,14 @@ const ForgotPassword = (props) => {
     )   
 }
 
-export default ForgotPassword
+function mapState(state) {
+    const { sending } = state.forgotpass;
+    return { sending };
+}
+
+const actionCreators = {
+    forgotPassword: userActions.forgotPassword
+};
+
+const connectedLoginPage = connect(mapState, actionCreators)(ForgotPassword);
+export { connectedLoginPage as ForgotPassword };

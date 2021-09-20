@@ -7,6 +7,8 @@ export const userActions = {
     login,
     logout,
     register,
+    forgotPassword,
+    resetPassword,
     getAll,
 };
 
@@ -76,5 +78,37 @@ function getAll(){
         function request(user) { return { type: userConstants.GETALL_REQUEST, user } }
         function success(user) { return { type: userConstants.GETALL_SUCCESS, user } }
         function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+    }
+}
+
+function forgotPassword(email){
+    return dispatch => {
+        dispatch(request(email));
+
+        userService.forgotPassword(email)
+        .then(
+            user => { dispatch(success(user)); history.push('/reset-password');},
+            error => { dispatch(failure(error.toString())); }
+        );
+
+        function request(user) { return { type: userConstants.FORGOTPASS_REQUEST, user } }
+        function success(user) { return { type: userConstants.FORGOTPASS_SUCCESS, user } }
+        function failure(error) { return { type: userConstants.FORGOTPASS_FAILURE, error } }
+    }
+}
+
+function resetPassword(data){
+    return dispatch => {
+        dispatch(request(data));
+
+        userService.resetPassword(data)
+        .then(
+            user => { dispatch(success(user)); history.push('/login'); },
+            error => { dispatch(failure(error.toString())); }
+        );
+
+        function request(user) { return { type: userConstants.RESETPASS_REQUEST, user } }
+        function success(user) { return { type: userConstants.RESETPASS_SUCCESS, user } }
+        function failure(error) { return { type: userConstants.RESETPASS_FAILURE, error } }
     }
 }

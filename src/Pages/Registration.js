@@ -15,7 +15,7 @@ const Registration = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm({});
     
-    const handleSubmitForm = (data) => {
+    const handleSubmitForm = () => {
         setSubmitted(true);
         if (password ===  confirmPassword) {
             const user = {name: fullName, email:email, password:password};
