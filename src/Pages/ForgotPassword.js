@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
 import '../Styles/Login.css'
+import RenderAuthButton from '../Components/RenderAuthButton';
 
 const ForgotPassword = (props) => {
     const [email, setEmail] = useState();
@@ -21,7 +22,7 @@ const ForgotPassword = (props) => {
                 <h1 className="title-text text-center">Forgot Password</h1>
                 <span className="text-center sm-text" style={{marginBottom: '20px'}}>Enter your email and we'll send you a link back to your account.</span>
                 <div className="form__wrapper">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit(handleSubmitForm)}>
                         <div className="cust-form-group">
                             <label className="sm-text">Email</label>
                             <input className="form-input" {...register("email", { 
@@ -37,7 +38,7 @@ const ForgotPassword = (props) => {
                             {errors.email && <span className="sm-text alert-text">{errors.email.message}</span>}
                         </div>
                         <div className="cust-form-group">
-                            <button type="submit" className="custBtn text-white" onClick={handleSubmit(handleSubmitForm)}>Send Email Notification</button>
+                            <RenderAuthButton btnName="Send Email Notification" submitted={submitted}/>
                         </div>
                     </form>
                 </div>

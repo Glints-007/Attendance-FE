@@ -24,7 +24,7 @@ async function login(email, password) {
         body: JSON.stringify({ email, password })
     };
 
-    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/login", requestOptions)
+    return await fetch(process.env.REACT_APP_API_URL + "/login", requestOptions)
         .then(handleResponse)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
@@ -35,7 +35,7 @@ async function login(email, password) {
 }
 
 function logout() {
-    // remove user from local storage to log user out
+    // remove user from local storage and session storage to log user out
     localStorage.removeItem('user');
     sessionStorage.removeItem('user');
 }
@@ -47,7 +47,7 @@ async function register(user) {
         body: JSON.stringify(user)
     };
 
-    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/register", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/register", requestOptions).then(handleResponse);
 }
 
 async function getAll() {
@@ -56,7 +56,7 @@ async function getAll() {
         headers: authHeader()
     };
 
-    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/users/verified", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/users/verified", requestOptions).then(handleResponse);
 }
 
 async function forgotPassword(email) {
@@ -66,7 +66,7 @@ async function forgotPassword(email) {
         body: JSON.stringify({email})
     };
 
-    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/forgot", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/forgot", requestOptions).then(handleResponse);
 }
 
 
@@ -77,7 +77,7 @@ async function resetPassword(data) {
         body: JSON.stringify(data)
     };
 
-    return await fetch("https://floating-journey-97236.herokuapp.com/api/v1/reset", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/users/reset", requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

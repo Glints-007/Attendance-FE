@@ -1,6 +1,5 @@
 import { userConstants } from '../Constants';
 import { userService } from '../Services';
-import { history } from '../Helpers';
 import { alertActions } from './';
 
 export const userActions = {
@@ -20,9 +19,7 @@ function login(email, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    // history.push('/dashboard');
                     window.location.replace('/dashboard');
-                    console.log(user);
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -50,7 +47,7 @@ function register(user) {
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
+                    window.location.replace('/login');
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {
@@ -87,7 +84,10 @@ function forgotPassword(email){
 
         userService.forgotPassword(email)
         .then(
-            user => { dispatch(success(user)); history.push('/reset-password');},
+            user => { 
+                dispatch(success(user)); 
+                window.location.replace('/reset-password');
+            },
             error => { dispatch(failure(error.toString())); }
         );
 
@@ -103,7 +103,10 @@ function resetPassword(data){
 
         userService.resetPassword(data)
         .then(
-            user => { dispatch(success(user)); history.push('/login'); },
+            user => { 
+                dispatch(success(user)); 
+                window.location.replace('/login'); 
+            },
             error => { dispatch(failure(error.toString())); }
         );
 

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
 import '../Styles/Login.css'
+import RenderAuthButton from '../Components/RenderAuthButton';
 
 const ResetPassword = (props) => {
     const [email, setEmail] = useState();
@@ -16,7 +17,12 @@ const ResetPassword = (props) => {
     const handleSubmitForm = () => {
         setSubmitted(true);
         if (password ===  confirmPassword) {
-            const data = {email:email, token:token, password:password, confirm_password:confirmPassword};
+            const data = {
+                    email:email, 
+                    token:  token, 
+                    password: password, 
+                    confirm_password: confirmPassword
+            };
             props.resetPassword(data);
         }
     }
@@ -27,7 +33,7 @@ const ResetPassword = (props) => {
                 <h1 className="title-text text-center">Forgot Password</h1>
                 <span className="text-center sm-text" style={{marginBottom: '20px'}}>Enter your email and we'll send you a link back to your account.</span>
                 <div className="form__wrapper">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit(handleSubmitForm)}>
                         <div className="cust-form-group">
                             <label className="sm-text">Email</label>
                             <input className="form-input" {...register("email", { 
@@ -44,8 +50,7 @@ const ResetPassword = (props) => {
                         </div>
                         <div className="cust-form-group">
                             <label className="sm-text">Token</label>
-                            <input className="form-input" {...register("token", { required: 'This field is required',  
-                                                                                        })} 
+                            <input className="form-input" {...register("token", { required: 'This field is required', })} 
                                                                                 value={token} 
                                                                                 onChange={(e)=>setToken(e.target.value)}>
                                                                             
@@ -55,7 +60,8 @@ const ResetPassword = (props) => {
                         <div className="cust-form-group">
                             <label className="sm-text">Email</label>
                             <input className="form-input" {...register("password", { required: "This field is required", 
-                                                                                        minLength: {value:8, message:"Password must have at least 8 characters"} })} 
+                                                                                        minLength: {value:8, message:"Password must have at least 8 characters"} 
+                                                                                    })} 
                                                                                     value={password} 
                                                                                     onChange={(e)=>setPassword(e.target.value)}>
                             </input>
@@ -63,17 +69,17 @@ const ResetPassword = (props) => {
                         </div>
                         <div className="cust-form-group">
                             <label className="sm-text">Email</label>
-                            <input className="form-input" {...register("confirmPassword", { 
-                                                                required: "This field is required",  
-                                                                minLength: {value:8, message:"Password must have at least 8 characters"}, 
-                                                                validate: value => value === password || "The passwords do not match" })} 
+                            <input className="form-input" {...register("confirmPassword", { required: "This field is required",  
+                                                                                                minLength: {value:8, message:"Password must have at least 8 characters"}, 
+                                                                                                validate: value => value === password || "The passwords do not match" })
+                                                                                            } 
                                                             value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}>
 
                             </input>
                             {errors.confirmPassword && <span className="sm-text alert-text">{errors.confirmPassword.message}</span>}
                         </div>
                         <div className="cust-form-group">
-                            <button type="submit" className="custBtn text-white" onClick={handleSubmit(handleSubmitForm)}>Reset Password</button>
+                            <RenderAuthButton btnName="Reset Password" submitted={submitted}/>
                         </div>
                     </form>
                 </div>
