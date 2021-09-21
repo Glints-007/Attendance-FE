@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import JumbotronComponent  from '../Components/JumbotronComponent';
 import NavbarComponent from '../Components/NavbarComponent';
 import TableComponent from '../Components/TableComponent';
-// import '../Styles/Navbar.css';
-// import '../Styles/Table.css';
 
 class Admin extends Component {
 state = {
