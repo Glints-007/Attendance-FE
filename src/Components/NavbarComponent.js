@@ -32,38 +32,6 @@ const NavbarComponent = (props) => {
               Logout
       </a>
     </nav>
-    
-    // <header>
-    //   <nav>
-    //     <ul class="nav__links">
-    //       <li><a>Dashboard Admin</a></li>
-    //     </ul>
-    //   </nav>
-    //   <a href="#" onClick="return confirm ('Are you sure?')">
-    //     Logout
-    //   </a>
-    // </header>
-
-    // <nav>
-    //   <ul>
-    //     <h5>Dashboard Admin </h5>
-    //     <li>
-    //     <a href="#" onClick="return confirm ('Are you sure?')">
-    //         Logout
-    //       </a>
-    //     </li>
-    //   </ul>
-
-    //   <ul>
-    //     <li>
-    //       <h6>Welcome,</h6>
-    //     </li>
-    //     <h6>Welcome,</h6>
-    //   </ul>
-    //   <ul>
-
-    //   </ul>
-    // </nav>
   );
 };
 
