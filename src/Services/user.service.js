@@ -77,7 +77,7 @@ async function resetPassword(data) {
         body: JSON.stringify(data)
     };
 
-    return await fetch(process.env.REACT_APP_API_URL + "/users/reset", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/reset", requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

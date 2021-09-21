@@ -30,8 +30,8 @@ const ResetPassword = (props) => {
     return (
         <div className="section__login" style={{  backgroundImage: `url(${process.env.PUBLIC_URL + '/img/background-login.jpg'})` }}>
             <div className="custContainer">
-                <h1 className="title-text text-center">Forgot Password</h1>
-                <span className="text-center sm-text" style={{marginBottom: '20px'}}>Enter your email and we'll send you a link back to your account.</span>
+                <h1 className="title-text text-center">Change Password</h1>
+                <span className="text-center sm-text" style={{marginBottom: '20px'}}>Please enter your received token and new password below.</span>
                 <div className="form__wrapper">
                     <form onSubmit={handleSubmit(handleSubmitForm)}>
                         <div className="cust-form-group">
@@ -50,7 +50,7 @@ const ResetPassword = (props) => {
                         </div>
                         <div className="cust-form-group">
                             <label className="sm-text">Token</label>
-                            <input className="form-input" {...register("token", { required: 'This field is required', })} 
+                            <input className="form-input" type="password" {...register("token", { required: 'This field is required', })} 
                                                                                 value={token} 
                                                                                 onChange={(e)=>setToken(e.target.value)}>
                                                                             
@@ -58,8 +58,8 @@ const ResetPassword = (props) => {
                             {errors.token && <span className="sm-text alert-text">{errors.token.message}</span>}
                         </div>
                         <div className="cust-form-group">
-                            <label className="sm-text">Email</label>
-                            <input className="form-input" {...register("password", { required: "This field is required", 
+                            <label className="sm-text">New Password</label>
+                            <input className="form-input" type="password" {...register("password", { required: "This field is required", 
                                                                                         minLength: {value:8, message:"Password must have at least 8 characters"} 
                                                                                     })} 
                                                                                     value={password} 
@@ -68,7 +68,7 @@ const ResetPassword = (props) => {
                             {errors.password && <span className="sm-text alert-text">{errors.password.message}</span>}
                         </div>
                         <div className="cust-form-group">
-                            <label className="sm-text">Email</label>
+                            <label className="sm-text">Confirm New Password</label>
                             <input className="form-input" {...register("confirmPassword", { required: "This field is required",  
                                                                                                 minLength: {value:8, message:"Password must have at least 8 characters"}, 
                                                                                                 validate: value => value === password || "The passwords do not match" })
@@ -83,7 +83,7 @@ const ResetPassword = (props) => {
                         </div>
                     </form>
                 </div>
-                <span className="p-relative text-center sm-text w-100"><Link to="/Login">Back to previous page</Link></span>
+                <span className="p-relative text-center sm-text w-100"><Link to="/Login">Back to Login</Link></span>
             </div>
         </div>
     )   
