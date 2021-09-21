@@ -1,0 +1,21 @@
+.navbar {
+     background: linear-gradient(137deg, #510ade 0%, #510ade 41%, #b000e4 100%);
+} 
+
+.navbar .container-fluid .navbar-brand{
+    color:white;
+    margin-left: 89px;
+    margin-top: 15px;
+}
+
+.navbar .container-fluid .h4{
+    color:white;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+.navbar .nav-link{
+    color: #fff;
+    margin-top: 15px;
+    margin-right: 125px;
+}

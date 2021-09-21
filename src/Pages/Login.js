@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
-import '../Styles/Login.css'
+import '../Styles/Login.css';
 
 const Login = (props) => {
     const [email, setEmail] = useState();
