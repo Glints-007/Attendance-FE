@@ -4,19 +4,29 @@ export const userService = {
     login,
     logout,
     register,
+    forgotPassword,
+    resetPassword,
+    getAll,
 };
 
-function login(email, password) {
+async function login(email, password) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit,
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer',
         body: JSON.stringify({ email, password })
     };
 
-    return fetch("http://localhost:8000/api/login", requestOptions)
+    return await fetch(process.env.REACT_APP_API_URL + "/login", requestOptions)
         .then(handleResponse)
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
             sessionStorage.setItem('user', JSON.stringify(user));
 
@@ -25,21 +35,50 @@ function login(email, password) {
 }
 
 function logout() {
-    // remove user from local storage to log user out
+    // remove user from local storage and session storage to log user out
     localStorage.removeItem('user');
     sessionStorage.removeItem('user');
 }
 
-function register(user) {
+async function register(user) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch("http://localhost:8000/api/register", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/register", requestOptions).then(handleResponse);
 }
 
+async function getAll() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return await fetch(process.env.REACT_APP_API_URL + "/users/verified", requestOptions).then(handleResponse);
+}
+
+async function forgotPassword(email) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({email})
+    };
+
+    return await fetch(process.env.REACT_APP_API_URL + "/forgot", requestOptions).then(handleResponse);
+}
+
+
+async function resetPassword(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    };
+
+    return await fetch(process.env.REACT_APP_API_URL + "/reset", requestOptions).then(handleResponse);
+}
 
 function handleResponse(response) {
     return response.text().then(text => {
