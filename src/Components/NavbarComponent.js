@@ -1,19 +1,4 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  Container,
-} from "reactstrap";
 import "../Styles/Navbar.css";
 
 const NavbarComponent = (props) => {
