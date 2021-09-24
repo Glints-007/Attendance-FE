@@ -1,4 +1,4 @@
-.container {
+.container-set {
     background-color: #fff;
     padding: 2rem;
     height: auto;
@@ -9,11 +9,11 @@
     display: flex;
 }
 
-.btn:hover {
+.btn-set:hover {
    background: #4802d4;
 }
 
-.btn {
+.btn-set {
     padding: 10px;
     border-style: none;
     border-radius: 5px;
