@@ -19,14 +19,14 @@ const AttendanceLog = (props) => {
                 </Col>
                 <Col className="align-self-center">
                     <div className="text-center">
-                        <p className="fs-7">Clock In</p>
-                        <p className="fs-5">09:00 AM</p>
+                        <p className="fs-7 text-margin">Clock In</p>
+                        <p className="fs-5 text-margin">09:00 AM</p>
                     </div>
                 </Col>
                 <Col className="align-self-center">
                     <div className="text-center">
-                        <p className="fs-7">Clock Out</p>
-                        <p className="fs-5">09:00 AM</p>
+                        <p className="fs-7 text-margin">Clock Out</p>
+                        <p className="fs-5 text-margin">09:00 AM</p>
                     </div>
                 </Col>
             </Row>

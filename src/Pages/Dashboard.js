@@ -9,10 +9,12 @@ import { connect } from 'react-redux';
 const Dashboard = (props) => {
    return (
     <>
+    <div className="dashboard">
         <Container>
             <DashNavbar />
             <AttendanceClock />
         </Container>
+    </div>
     </>
     )
 }

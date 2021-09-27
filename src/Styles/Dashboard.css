@@ -1,7 +1,7 @@
-body{
+.dashboard{
     background-image: linear-gradient(130deg, #2e22ac , #dc4ca1);
     height: 100vh;
-    
+    font-family: 'Roboto';
 }
 .card-set{
     border-radius: 30px 30px 30px 30px !important;
@@ -22,6 +22,14 @@ body{
 .jumbotron-set{
     margin-top: 60px;
     margin-bottom: 60px;
+}
+.name-box{
+    width: 80%;
+    position: relative;
+    margin: auto;
+}
+.clock-fs{
+    font-size: 55px;
 }
 
 /* DashNavbar */
@@ -55,6 +63,11 @@ body{
 .card-log-text{
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.text-margin{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 @media screen and (max-width: 400px) {

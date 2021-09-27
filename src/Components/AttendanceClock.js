@@ -13,10 +13,14 @@ const AttendanceClock = (props) => {
     console.log(users);
     return (
     <>
+            <div className="name-box text-white">
+                <h6 className="fs-7 text-margin">Welcome,</h6>
+                <h5 className="fs-5 text-margin fw-bold">User Name</h5>
+            </div>
             <div className="jumbotron-set">
                 <Jumbotron className="text-center text-white">
                     <h5><Clock format={'dddd, MMMM Do YYYY'} ticking={true} timezone={'Asia/Jakarta'} /></h5>
-                    <h1 className="fw-bold"><Clock format={'hh:mm A'} ticking={true} timezone={'Asia/Jakarta'} /></h1>
+                    <h1 className="fw-bold clock-fs"><Clock format={'hh:mm A'} ticking={true} timezone={'Asia/Jakarta'} /></h1>
                     <h5>Your location: </h5>
                     <div class="d-flex flex-row bd-highlight mb-3 justify-content-center">
                         <div class="p-2 bd-highlight"><Button className="btn btn-success">Clock In</Button></div>
