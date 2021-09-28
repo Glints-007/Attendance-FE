@@ -10,7 +10,6 @@ import { AttendanceLog } from './AttendanceLog';
 
 const AttendanceClock = (props) => {
     const { user, users } = props; 
-    console.log(users);
     return (
     <>
             <div className="name-box text-white">
