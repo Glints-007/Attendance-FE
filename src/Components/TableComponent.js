@@ -82,13 +82,6 @@ const defaultSorted = [
 const TableComponent = (props) => {
   return (
     <Container className="container-set">
-      {/* <BootstrapTable 
-              bootstrap4 
-              keyField='id' 
-              data={ props.users } 
-              columns={ columns }  
-              defaultSorted={ defaultSorted }  
-            /> */}
       <ToolkitProvider
         keyField="uid"
         data={props.users}
