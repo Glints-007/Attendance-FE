@@ -1,5 +1,4 @@
 import React from 'react';
-// import './AttendanceLog.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Card, Container} from 'reactstrap';
 import { connect } from 'react-redux';
