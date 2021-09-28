@@ -16,7 +16,6 @@ function App() {
     <div className="App">
         <Router history={history}>
           <Switch>
-                {/* <Route exact path="/" component={Login} /> */}
                 <Route exact path="/login">
                   {localStorage.getItem('user') ? <Redirect to="/dashboard" /> : <Login />}
                 </Route>
