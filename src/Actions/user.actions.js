@@ -24,7 +24,7 @@ function login(email, password) {
                 error => {
                     dispatch(failure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
-                    window.location.replace('/login');
+                    window.location.replace('/');
                 }
             );
     };
@@ -36,6 +36,7 @@ function login(email, password) {
 
 function logout() {
     userService.logout();
+    window.location.replace('/login');
     return { type: userConstants.LOGOUT };
 }
 

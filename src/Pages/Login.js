@@ -11,9 +11,6 @@ const Login = (props) => {
     const [password, setPassword] = useState();
     const [submitted, setSubmitted] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm({});
-    
-     // reset login status
-     props.logout();
 
     const handleSubmitForm = (data, event) => {
         event.preventDefault();
