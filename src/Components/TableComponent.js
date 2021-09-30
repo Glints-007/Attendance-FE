@@ -60,10 +60,10 @@ const columns = [
     formatter: (rowContent, row) => {
       return (
         <div>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn-set btn-light">
             <FontAwesomeIcon icon={faCheck} />
           </button>
-          <button type="button" className="btn btn-dark">
+          <button type="button" className="btn-set btn-dark">
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
@@ -81,14 +81,7 @@ const defaultSorted = [
 
 const TableComponent = (props) => {
   return (
-    <Container>
-      {/* <BootstrapTable 
-              bootstrap4 
-              keyField='id' 
-              data={ props.users } 
-              columns={ columns }  
-              defaultSorted={ defaultSorted }  
-            /> */}
+    <Container className="container-set">
       <ToolkitProvider
         keyField="uid"
         data={props.users}
