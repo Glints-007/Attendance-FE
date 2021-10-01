@@ -24,6 +24,10 @@ async function login(email, password) {
         body: JSON.stringify({ email, password })
     };
 
+    if(sessionStorage.getItem('user')){
+        return false;
+    }
+
     return await fetch(process.env.REACT_APP_API_URL + "/login", requestOptions)
         .then(handleResponse)
         .then(user => {
@@ -56,7 +60,7 @@ async function getAll() {
         headers: authHeader()
     };
 
-    return await fetch(process.env.REACT_APP_API_URL + "/users/verified", requestOptions).then(handleResponse);
+    return await fetch(process.env.REACT_APP_API_URL + "/users", requestOptions).then(handleResponse);
 }
 
 async function forgotPassword(email) {

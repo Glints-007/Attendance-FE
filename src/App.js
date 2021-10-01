@@ -16,7 +16,9 @@ function App() {
     <div className="App">
         <Router history={history}>
           <Switch>
-                <Route path="/login" component={Login} />
+                <Route exact path="/login">
+                  {localStorage.getItem('user') ? <Redirect to="/dashboard" /> : <Login />}
+                </Route>
                 <Route path="/register" component={Registration} />
                 <Route path="/forgot-password" component={ForgotPassword} />
                 <Route path="/reset-password" component={ResetPassword} />
