@@ -1,6 +1,6 @@
 .dashboard{
     background-image: linear-gradient(130deg, #2e22ac , #dc4ca1);
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Roboto';
 }
 .card-set{

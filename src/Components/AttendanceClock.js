@@ -13,6 +13,7 @@ class AttendanceClock extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            user:'User',
             latitude: null,
             longitude: null,
             userCity: null,
@@ -69,6 +70,9 @@ class AttendanceClock extends React.Component{
     }
     componentDidMount() {
         this.getLocation()
+        let user = JSON.parse(localStorage.getItem('user'));
+        console.log(user);
+        this.setState({user:user.content['name']})
     }
 
     render() {
@@ -76,7 +80,7 @@ class AttendanceClock extends React.Component{
             <>
                     <div className="name-box text-white">
                         <h6 className="fs-7 text-margin">Welcome,</h6>
-                        <h5 className="fs-5 text-margin fw-bold">User Name</h5>
+                        <h5 className="fs-5 text-margin fw-bold">{this.state.user}</h5>
                     </div>
                     <div className="jumbotron-set">
                         <Jumbotron className="text-center text-white">

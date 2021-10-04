@@ -23,7 +23,6 @@ function App() {
                 <Route path="/forgot-password" component={ForgotPassword} />
                 <Route path="/reset-password" component={ResetPassword} />
                 <Route path="/admin-dashboard" component={Admin} />
-
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/about" component={About} />
                 <Redirect from="*" to="/login" />
