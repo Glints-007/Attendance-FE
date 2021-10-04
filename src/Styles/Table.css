@@ -1,0 +1,28 @@
+.container-set {
+    background-color: #fff;
+    padding: 2rem;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.btn-set:hover {
+   background: #4802d4;
+}
+
+.btn-set {
+    padding: 10px;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #510ade;
+    background: linear-gradient(137deg, #510ade 0%, #510ade 41%, #b000e4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
+    margin-right: 17px;
+    margin-left: 14px;
+    width: max-content;
+}

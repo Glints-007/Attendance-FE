@@ -1,11 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import DashNavbar from '../Components/DashNavbar';
+import { AttendanceClock } from '../Components/AttendanceClock';
+import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
 
 const Dashboard = (props) => {
     const { users, logout } = props; 
     return (
+        <div className="dashboard">
+            <Container>
+                <DashNavbar />
+                <AttendanceClock />
+            </Container>
+        </div>
         <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', height:'100vh', width:'100%', margin:'auto'}}>
 
             {users.loading && <em>Loading users...</em>}

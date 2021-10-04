@@ -1,0 +1,76 @@
+.dashboard{
+    background-image: linear-gradient(130deg, #2e22ac , #dc4ca1);
+    height: 100vh;
+    font-family: 'Roboto';
+}
+.card-set{
+    border-radius: 30px 30px 30px 30px !important;
+    min-height: 250px;
+    bottom: 0;
+    width: 80%;
+    position: relative;
+    margin: auto;
+}
+.card-body-set{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.jumbotron-set{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.name-box{
+    width: 80%;
+    position: relative;
+    margin: auto;
+}
+.clock-fs{
+    font-size: 55px;
+}
+
+/* DashNavbar */
+.nav-right {
+    margin-left: auto;
+    float: right;
+}
+.font-color-white{
+    color: white !important;
+}
+.nav-center {
+    margin: auto;
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* AttendanceLog */
+.card-log{
+    width: 130px;
+    height: 130px;
+    background-color: silver !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    margin: auto;
+}
+.card-log-text{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.text-margin{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 400px) {
+    .card-set{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+  }
