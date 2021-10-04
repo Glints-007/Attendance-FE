@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { userActions } from '../Actions';
 
 const Dashboard = (props) => {
-    const { user, users, logout } = props; 
+    const { users, logout } = props; 
     return (
         <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', height:'100vh', width:'100%', margin:'auto'}}>
 

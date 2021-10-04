@@ -1,6 +1,6 @@
 import React from 'react';
 import { PrivateRoute } from './Components';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { history } from './Helpers';
 import { Login } from './Pages/Login';
 import { Dashboard } from './Pages/Dashboard';

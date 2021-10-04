@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RenderAuthButton = (props) => {
+export const RenderAuthButton = (props) => {
     const {btnName, submitted} = props;
     
     if (submitted) {
@@ -9,5 +9,3 @@ const RenderAuthButton = (props) => {
         return <button type="submit" className="custBtn text-white">{btnName}</button>
     }
 }
-
-export default RenderAuthButton
