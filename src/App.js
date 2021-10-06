@@ -1,6 +1,6 @@
 import React from 'react';
 import { PrivateRoute } from './Components';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { history } from './Helpers';
 import { Login } from './Pages/Login';
 import { Dashboard } from './Pages/Dashboard';
@@ -23,7 +23,6 @@ function App() {
                 <Route path="/forgot-password" component={ForgotPassword} />
                 <Route path="/reset-password" component={ResetPassword} />
                 <Route path="/admin-dashboard" component={Admin} />
-
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/about" component={About} />
                 <Redirect from="*" to="/login" />

@@ -1,43 +1,33 @@
-import React from 'react';
-import DashNavbar from '../Components/DashNavbar';
-import { AttendanceClock } from '../Components/AttendanceClock';
+import React, { useState, useEffect } from 'react';
+import { DashNavbar, AttendanceClock } from '../Components';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
+import Admin from './Admin';
 
 const Dashboard = (props) => {
-    const { user, users, logout } = props; 
-    return (
-        <>
-        <div className="dashboard">
-            <Container>
-                <DashNavbar />
-                <AttendanceClock />
-            </Container>
-        </div>
-        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', height:'100vh', width:'100%', margin:'auto'}}>
+    const [isAdmin, setIsAdmin] = useState(true)
 
-            {users.loading && <em>Loading users...</em>}
-            {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-            {users.items &&
-                <ul>
-                    {users.items.map((user, index) =>
-                        <li key={user.uid}>
-                            {user.name + ' ' + user.email}
-                        </li>
-                    )}
-                </ul>
-            }
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem('user'));
+        setIsAdmin(user.content['role'])
+    }, [])
 
-            <footer style={{ position:'absolute', bottom:'0', height:'80px' }}>
-                <Link to="/dashboard" style={{ margin:'10px' }}>Dashboard</Link>
-                <Link to="/about" style={{ margin:'10px' }}>About</Link>
-                <Link onClick={logout} style={{ margin:'10px' }}>Logout</Link>
-            </footer>
-        </div>
-        </>
-    )
+    if (isAdmin === 'admin') {
+        return <Admin />
+    } else {
+        return (
+            <>
+                <div className="dashboard">
+                    <Container>
+                        <DashNavbar />
+                        <AttendanceClock />
+                    </Container>
+                </div>
+    
+            </>
+        )   
+    }
 }
 
 function mapState(state) {

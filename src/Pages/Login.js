@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux';
+import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { alertActions, userActions } from '../Actions';
-import { useForm } from "react-hook-form";
+import { RenderAuthButton } from '../Components';
 import '../Styles/Login.css'
-import RenderAuthButton from '../Components/RenderAuthButton';
 
 
 const Login = (props) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [submitted, setSubmitted] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm({});
+    const { register, handleSubmit, formState: { errors } } = useForm({});  
 
     const handleSubmitForm = (data, event) => {
         event.preventDefault();
@@ -20,6 +20,16 @@ const Login = (props) => {
         if (email && password) {
             props.login(email, password);
         }
+    }
+
+    const handleInputEmailChanges = (event)=>{
+        const inputValue = event.target.value;
+        setEmail(inputValue)
+    }
+    
+    const handleInputPasswordChanges = (event)=>{
+        const inputValue = event.target.value;
+        setPassword(inputValue)
     }
 
     return (
@@ -37,12 +47,13 @@ const Login = (props) => {
                                                                                             message: "Invalid email address"
                                                                                         }})} 
                                                                                     value={email} 
-                                                                                    onChange={(e)=>setEmail(e.target.value)}></input>
+                                                                                    onChange={handleInputEmailChanges}></input>
                             {errors.email && <span className="sm-text alert-text">{errors.email.message}</span>}
                         </div>
                         <div className="cust-form-group">
                             <label className="sm-text">Password</label>
-                            <input className="form-input" type="password" {...register("password", { required: "This field is required", minLength: {value:8, message:"Password must have at least 8 characters"} })} value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+                            <input className="form-input" type="password" {...register("password", { required: "This field is required", minLength: {value:8, message:"Password must have at least 8 characters"} })} 
+                                                            value={password} onChange={handleInputPasswordChanges}></input>
                             {errors.password && <span className="sm-text alert-text">{errors.password.message}</span>}
                             <span className="text-right sm-text w-100"><Link to="/forgot-password">Forgot Password?</Link></span>
                         </div>
