@@ -19,7 +19,7 @@ export const getUsersList = () => {
   return (dispatch) => {
     axios
       .get
-      ("https://floating-journey-97236.herokuapp.com/api/v1/users", config)
+      (`${process.env.REACT_APP_API_URL}/users`, config)
       .then(function (response) {
         dispatch({
           type: GET_USERS_LIST,
@@ -53,7 +53,7 @@ export const deleteUser = (uid) => {
   return (dispatch) => {
     axios
       .delete(
-         "https://floating-journey-97236.herokuapp.com/api/v1/users/"+uid, config)
+        `${process.env.REACT_APP_API_URL}/users/${uid}`, config)
       .then(function (response) {
         console.log(response);
         
@@ -78,7 +78,7 @@ export const verifyUser = (uid) => {
   return (dispatch) => {
     axios
       .put(
-        `https://floating-journey-97236.herokuapp.com/api/v1/users/${uid}/verify`, null, config)
+        `${process.env.REACT_APP_API_URL}/users/${uid}/verify`, null, config)
       .then(function (response) {
         console.log(response);
       })
@@ -101,7 +101,7 @@ export const rejectUser = (uid) => {
   return (dispatch) => {
     axios
       .put(
-        `https://floating-journey-97236.herokuapp.com/api/v1/users/${uid}/reject`, null, config)
+        `${process.env.REACT_APP_API_URL}/users/${uid}/reject`, null, config)
       .then(function (response) {
         console.log(response);
       })
