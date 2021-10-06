@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
 import { useForm } from "react-hook-form";
-import RenderAuthButton from '../Components/RenderAuthButton';
+import { RenderAuthButton } from '../Components';
 import '../Styles/Login.css'
   
 

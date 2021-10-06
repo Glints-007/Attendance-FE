@@ -14,8 +14,13 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { userActions } from '../Actions';
+
 
 const DashNavbar = (props) => {
+    const { logout } = props; 
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -34,7 +39,7 @@ const DashNavbar = (props) => {
                         </DropdownToggle>
                         <DropdownMenu right className="dropdown-menu-dark dropdown-menu-end">
                             <DropdownItem>
-                            Log Out
+                                <Link onClick={logout} style={{ margin:'10px', color:'#fff' }}>Logout</Link>
                             </DropdownItem>
                         </DropdownMenu>
                         </UncontrolledDropdown>
@@ -46,4 +51,15 @@ const DashNavbar = (props) => {
     );
 }
 
-export default DashNavbar;
+function mapState(state) {
+    const { users, authentication } = state;
+    const { user } = authentication;
+    return { user, users };
+}
+
+const actionCreators = {
+    logout: userActions.logout
+}
+
+const connectedHomePage = connect(mapState, actionCreators)(DashNavbar);
+export { connectedHomePage as DashNavbar };

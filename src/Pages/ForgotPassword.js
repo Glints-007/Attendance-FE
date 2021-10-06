@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { userActions } from '../Actions';
+import { RenderAuthButton } from '../Components';
 import '../Styles/Login.css'
-import RenderAuthButton from '../Components/RenderAuthButton';
 
 const ForgotPassword = (props) => {
     const [email, setEmail] = useState();
