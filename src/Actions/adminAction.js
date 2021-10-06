@@ -6,11 +6,12 @@ export const GET_USERS_LIST = "GET_USERS_LIST";
 
 export const getUsersList = () => {
 
+  let user = JSON.parse(localStorage.getItem('user'));
+  let token = user && user.access_token ? user.access_token : '';
   const config = {
     headers: {
-      //"Content-type": "application/json", 
-      'Content-Type': 'application/json',
-      "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
+      "Content-type": "application/json",
+      "Authorization": "Bearer " + token,
     },
   };
 

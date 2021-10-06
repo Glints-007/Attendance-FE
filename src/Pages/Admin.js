@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import JumbotronComponent  from '../Components/JumbotronComponent';
-import NavbarComponent from '../Components/NavbarComponent';
+import { NavbarComponent } from '../Components';
 import TableContainer from '../Containers/TableContainer';
 
 
