@@ -10,7 +10,7 @@ class Admin extends Component {
     return (
       <div>
         <NavbarComponent/>
-        <JumbotronComponent />
+        <JumbotronComponent /> 
         <TableContainer />
       </div>
 

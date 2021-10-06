@@ -4,14 +4,15 @@ import axios from "axios";
 
 export const GET_USERS_LIST = "GET_USERS_LIST";
 
+let user = JSON.parse(localStorage.getItem('user'));
+let token = user && user.content['access_token'] ? user.content['access_token'] : '';
+
 export const getUsersList = () => {
 
-  let user = JSON.parse(localStorage.getItem('user'));
-  let token = user && user.access_token ? user.access_token : '';
   const config = {
     headers: {
       "Content-type": "application/json",
-      "Authorization": "Bearer " + token,
+      "Authorization": 'Bearer ' + token,
     },
   };
 
@@ -41,10 +42,11 @@ export const getUsersList = () => {
 };
 
 export const deleteUser = (uid) => {
+
   const config = {
     headers: {
-      "Content-type": "application/json", 
-      "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
+      "Content-type": "application/json",
+      "Authorization": 'Bearer ' + token,
     },
   };
 
@@ -64,11 +66,12 @@ export const deleteUser = (uid) => {
 };
 
 export const verifyUser = (uid) => {
+
   const config = {
     headers: {
-      "Content-type": "application/json", 
+      "Content-type": "application/json",
       "Accept" : "application/json",
-      "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
+      "Authorization": 'Bearer ' + token,
     },
   };
 
@@ -86,12 +89,12 @@ export const verifyUser = (uid) => {
 }
 
 export const rejectUser = (uid) => {
+
   const config = {
     headers: {
       "Content-type": "application/json",
-      "Accept" : "application/json", 
-      
-      "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
+      "Accept" : "application/json",
+      "Authorization": 'Bearer ' + token,
     },
   };
 

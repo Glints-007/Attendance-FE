@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { userActions } from '../Actions';
 import { Link } from 'react-router-dom';
 
-
-
 const NavbarComponent = (props) => {
 
   const [isOpen, setIsOpen] = useState(false);
