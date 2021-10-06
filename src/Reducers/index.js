@@ -6,6 +6,7 @@ import { users } from './users.reducer';
 import { alert } from './alert.reducer';
 import { forgotpass } from './forgotpass.reducer';
 import { resetpass } from './resetpass.reducer';
+import admin from './admin.reducer';
 
 const rootReducer = combineReducers({
   authentication,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   forgotpass,
   resetpass,
   alert,
+  admin,
 });
 
 export default rootReducer;

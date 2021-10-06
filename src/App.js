@@ -19,10 +19,10 @@ function App() {
                 <Route exact path="/login">
                   {localStorage.getItem('user') ? <Redirect to="/dashboard" /> : <Login />}
                 </Route>
+                <Route path="/logout" component={Login} />
                 <Route path="/register" component={Registration} />
                 <Route path="/forgot-password" component={ForgotPassword} />
                 <Route path="/reset-password" component={ResetPassword} />
-                <Route path="/admin-dashboard" component={Admin} />
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/about" component={About} />
                 <Redirect from="*" to="/login" />

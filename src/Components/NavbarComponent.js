@@ -1,23 +1,14 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  Container,
-} from "reactstrap";
 import "../Styles/Navbar.css";
+import { connect } from 'react-redux';
+import { userActions } from '../Actions';
+import { Link } from 'react-router-dom';
 
 const NavbarComponent = (props) => {
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const { logout } = props; 
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -28,11 +19,22 @@ const NavbarComponent = (props) => {
           Dasboard Admin
         </a>
       </div>
-      <a className="nav-link" href="#">
-              Logout
-      </a>
+      <Link onClick={logout} style={{ margin:'10px', color:'#fff' }}>Logout</Link>
     </nav>
   );
 };
 
-export default NavbarComponent;
+function mapState(state) {
+  const { users, authentication } = state;
+  const { user } = authentication;
+  return { user, users };
+}
+
+const actionCreators = {
+  getUsers: userActions.getAll,
+  logout: userActions.logout,
+  deleteUser: userActions.delete
+}
+
+const connectedHomePage = connect(mapState, actionCreators)(NavbarComponent);
+export { connectedHomePage as NavbarComponent };

@@ -62,7 +62,7 @@ const Login = (props) => {
                         </div>
                     </form>
                 </div>
-                <span className="p-relative text-center sm-text w-100">Don'have an account? <Link to="/register">Register here</Link></span>
+                <span className="p-relative text-center sm-text w-100">Don't have an account? <Link to="/register">Register here</Link></span>
             </div>
         </div>
     )   
