@@ -13,7 +13,7 @@ class AttendanceClock extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            user:'User',
+            user:null,
             latitude: null,
             longitude: null,
             userCity: null,
@@ -71,7 +71,6 @@ class AttendanceClock extends React.Component{
     componentDidMount() {
         this.getLocation()
         let user = JSON.parse(localStorage.getItem('user'));
-        console.log(user);
         this.setState({user:user.content['name']})
     }
 
