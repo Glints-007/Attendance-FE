@@ -1,6 +1,7 @@
 import { faColumns } from "@fortawesome/free-solid-svg-icons";
 import TableComponent from '../Components/TableComponent';
 import axios from "axios";
+import { authHeader } from "../Helpers";
 
 export const GET_USERS_LIST = "GET_USERS_LIST";
 
