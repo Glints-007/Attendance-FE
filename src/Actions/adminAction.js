@@ -8,7 +8,8 @@ export const getUsersList = () => {
 
   const config = {
     headers: {
-      "Content-type": "application/json",
+      //"Content-type": "application/json", 
+      'Content-Type': 'application/json',
       "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
     },
   };
@@ -41,7 +42,7 @@ export const getUsersList = () => {
 export const deleteUser = (uid) => {
   const config = {
     headers: {
-      "Content-type": "application/json",
+      "Content-type": "application/json", 
       "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
     },
   };
@@ -64,7 +65,7 @@ export const deleteUser = (uid) => {
 export const verifyUser = (uid) => {
   const config = {
     headers: {
-      "Content-type": "application/json",
+      "Content-type": "application/json", 
       "Accept" : "application/json",
       "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
     },
@@ -87,7 +88,8 @@ export const rejectUser = (uid) => {
   const config = {
     headers: {
       "Content-type": "application/json",
-      "Accept" : "application/json",
+      "Accept" : "application/json", 
+      
       "Authorization": "Bearer 125|ALFUiv47Lm48lqRnzLHuPDjiNvo4qV6d47VbEiuf",
     },
   };
