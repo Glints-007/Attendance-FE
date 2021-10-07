@@ -97,6 +97,19 @@
     margin : 25px;
 }
 
+.button {
+    background-color: #2b2d2f; 
+    border: none;
+    color: white;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 400px) {
     .card-set{
         margin-left: 5%;
