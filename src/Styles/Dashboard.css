@@ -69,6 +69,35 @@
     margin-bottom: 5px;
 }
 
+/* Admin Table */
+.tablecard{
+    background-color: white;
+}
+
+.searchbar{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fs-4{
+    padding-top: 30px;
+}
+
+.custBtn {
+    padding: 10px;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #510ade;
+    background: linear-gradient(137deg, #510ade 0%, #510ade 41%, #b000e4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#510ade",endColorstr="#b000e4",GradientType=1);
+}
+
+.adminaction{
+    margin : 25px;
+}
+
 @media screen and (max-width: 400px) {
     .card-set{
         margin-left: 5%;
