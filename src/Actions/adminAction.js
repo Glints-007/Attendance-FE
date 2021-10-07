@@ -1,9 +1,7 @@
-import { faColumns } from "@fortawesome/free-solid-svg-icons";
-import TableComponent from '../Components/TableComponent';
 import axios from "axios";
-import { authHeader } from "../Helpers";
 
 export const GET_USERS_LIST = "GET_USERS_LIST";
+export const GET_USERS_ABSENT = "GET_USER_ABSENT";
 
 let user = JSON.parse(localStorage.getItem('user'));
 let token = user && user.content['access_token'] ? user.content['access_token'] : '';
@@ -33,6 +31,40 @@ export const getUsersList = () => {
       .catch(function (error) {
         dispatch({
           type: GET_USERS_LIST,
+          payload: {
+            data: false,
+            errorMessage: error.message,
+          },
+        });
+      });
+  };
+};
+
+export const getUsersAbsent = () => {
+
+  const config = {
+    headers: {
+      "Content-type": "application/json",
+      "Authorization": 'Bearer ' + token,
+    },
+  };
+
+  return (dispatch) => {
+    axios
+      .get
+      (`${process.env.REACT_APP_API_URL}/user-absent`, config)
+      .then(function (response) {
+        dispatch({
+          type: GET_USERS_ABSENT,
+          payload: {
+            data: response.data,
+            errorMessage: false,
+          },
+        });
+      })
+      .catch(function (error) {
+        dispatch({
+          type: GET_USERS_ABSENT,
           payload: {
             data: false,
             errorMessage: error.message,
