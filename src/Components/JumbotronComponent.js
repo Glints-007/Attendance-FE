@@ -3,15 +3,11 @@ import { Jumbotron, Button, Container } from 'reactstrap';
 
 const JumbotronComponent = (props) => {
   return (
-    <div>
-      <Jumbotron>
-          <Container>
-            <h3 className="display-8">User Approval</h3>
-        </Container>
-      </Jumbotron>
-    </div>
+      <div className="container text-white">
+          <h6 className="fs-7 text-margin">Welcome,</h6>
+          <h5 className="fs-5 text-margin fw-bold">Administrator</h5>
+      </div>
   );
 };
 
-//biar bisa dipanggil darimana saja
 export default JumbotronComponent;

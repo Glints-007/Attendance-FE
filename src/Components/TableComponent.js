@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Button, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faTrash } from "@fortawesome/free-solid-svg-icons";
-import "../Styles/Table.css";
+// import "../Styles/Table.css";
+import '../Styles/Dashboard.css';
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { connect } from "react-redux";
@@ -96,7 +97,8 @@ const TableComponent = (props) => {
       text: "ID",
       sort: true,
       headerStyle: () => {
-        return { width: "100px" };
+        return { width: "100px", textAlign :"center",
+         };
       },
     },
     {
@@ -104,7 +106,8 @@ const TableComponent = (props) => {
       text: "Nama",
       sort: true,
       headerStyle: () => {
-        return { width: "100px" };
+        return { textAlign :"center",
+         };
       },
     },
     {
@@ -112,7 +115,8 @@ const TableComponent = (props) => {
       text: "Email",
       sort: true,
       headerStyle: () => {
-        return { width: "200px" };
+        return { textAlign :"center",
+         };
       },
     },
     {
@@ -120,7 +124,8 @@ const TableComponent = (props) => {
       text: "Office ID",
       sort: true,
       headerStyle: () => {
-        return { width: "100px" };
+        return { textAlign :"center",
+         };
       },
     },
     {
@@ -128,27 +133,29 @@ const TableComponent = (props) => {
       text: "Status",
       sort: true,
       headerStyle: () => {
-        return { width: "150px" };
+        return { textAlign :"center",
+         };
       },
     },
     {
       dataField: "button",
       text: "Action",
       headerStyle: () => {
-        return { width: "220px" };
+        return { textAlign :"center",
+         };
       },
       formatter: (rowContent, row) => {
         return (
-          <div>
-            <button type="button" className="btn btn-light" onClick={() => handleClickverify(props.dispatch, row.uid)}>
+          <div className="adminaction text-center">
+            <button type="button" className="custBtn mx-3" onClick={() => handleClickverify(props.dispatch, row.uid)}>
               <FontAwesomeIcon icon={faCheck} />
             </button>
 
-            <button type="button" className="btn btn-dark" onClick={() => handleClickreject(props.dispatch, row.uid)}>
+            <button type="button" className="custBtn mx-3" onClick={() => handleClickreject(props.dispatch, row.uid)}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
 
-            <button type="button" className="btn btn-dark" onClick={() => handleClickdelete(props.dispatch, row.uid)}>
+            <button type="button" className="custBtn mx-3" onClick={() => handleClickdelete(props.dispatch, row.uid)}>
               <FontAwesomeIcon icon={faTrash} />
             </button>
           </div>
@@ -158,41 +165,42 @@ const TableComponent = (props) => {
   ];
 
   return (
-    <Container>
+    <div className="tablecard">
+      <div className="container">
+        {props.getUsersList ? (
+          <ToolkitProvider
+            bootstrap4
+            keyField="id"
+            data={props.getUsersList}
+            columns={columns}
+            defaultSorted={defaultSorted}
+            search
+          >
+            {(props) => (
+              <div>
+                <h4 className="fs-4 text-margin fw-bold">User Approval</h4>
+                <div className="float-end searchbar">
+                  <SearchBar {...props.searchProps} placeholder="Search..." />
+                </div>
 
-      {props.getUsersList ? (
-        <ToolkitProvider
-          bootstrap4
-          keyField="id"
-          data={props.getUsersList}
-          columns={columns}
-          defaultSorted={defaultSorted}
-          search
-        >
-          {(props) => (
-            <div>
-              <div className="float-right">
-                <SearchBar {...props.searchProps} placeholder="Search..." />
+                <BootstrapTable
+                  {...props.baseProps}
+                  pagination={paginationFactory()}
+                />
               </div>
-              <hr />
-
-              <BootstrapTable
-                {...props.baseProps}
-                pagination={paginationFactory()}
-              />
-            </div>
-          )}
-        </ToolkitProvider>
-      ) : (
-        <div className="text-center">
-          {props.errorUsersList ? (
-            <h4>{props.errorUsersList}</h4>
-          ) : (
-            <Spinner color="dark" />
-          )}
-        </div>
-      )}
-    </Container>
+            )}
+          </ToolkitProvider>
+        ) : (
+          <div className="text-center">
+            {props.errorUsersList ? (
+              <h4>{props.errorUsersList}</h4>
+            ) : (
+              <Spinner color="dark" />
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
