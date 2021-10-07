@@ -57,6 +57,7 @@
     flex-direction: column;
     border-radius: 30px;
     margin: auto;
+    margin-bottom: 10px;
 }
 .card-log-text{
     margin-top: auto;

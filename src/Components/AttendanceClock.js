@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../Actions';
 import '../Styles/Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Jumbotron, Card, CardBody, Container, Row, Col, Button} from 'reactstrap';
+import { Jumbotron, Card, CardBody, Button} from 'reactstrap';
 import Clock from 'react-live-clock';
 import { AttendanceLog } from './AttendanceLog';
+import axios from 'axios';
+import { authHeader } from '../Helpers';
 
 
 class AttendanceClock extends React.Component{
@@ -17,11 +18,14 @@ class AttendanceClock extends React.Component{
             latitude: null,
             longitude: null,
             userCity: null,
-            userLocality: null
+            userLocality: null,
+
         };
         this.getLocation = this.getLocation.bind(this);
         this.getCoordinates = this.getCoordinates.bind(this);
         this.reverseGeocodeLocation = this.reverseGeocodeLocation.bind(this)
+        this.postClock = this.postClock.bind(this)
+        this.putClock = this.putClock.bind(this)
     }
 
     getLocation() {
@@ -68,6 +72,28 @@ class AttendanceClock extends React.Component{
                 alert("An unknown error occurred.")
           }
     }
+
+    postClock() {
+        axios.post(process.env.REACT_APP_API_URL + "/clock-in", { lat : this.state.latitude, long : this.state.longitude}, {headers: authHeader()})
+            .then(function (response) {
+                alert(response.data.msg)
+            })
+            .catch(error => {
+                console.log('error : ',error);
+            })
+    }
+
+    putClock() {
+        axios.put(process.env.REACT_APP_API_URL + "/clock-out", { lat : this.state.latitude, long : this.state.longitude}, {headers: authHeader()})
+            .then(function (response) {
+                alert(response.data.msg)
+              })
+            .catch(error => {
+                console.log('error : ',error);
+            
+            })
+    }
+
     componentDidMount() {
         this.getLocation()
         let user = JSON.parse(localStorage.getItem('user'));
@@ -87,15 +113,15 @@ class AttendanceClock extends React.Component{
                             <h1 className="fw-bold clock-fs"><Clock format={'hh:mm A'} ticking={true} timezone={'Asia/Jakarta'} /></h1>
                             <h5>Your location: {this.state.userLocality}, {this.state.userCity}</h5>
                             <div class="d-flex flex-row bd-highlight mb-3 justify-content-center">
-                                <div class="p-2 bd-highlight"><Button className="btn btn-success">Clock In</Button></div>
-                                <div class="p-2 bd-highlight"><Button className="btn btn-danger">Clock Out</Button></div>
+                                <div class="p-2 bd-highlight"><Button className="btn btn-success" onClick={this.postClock}>Clock In</Button></div>
+                                <div class="p-2 bd-highlight"><Button className="btn btn-danger" onClick={this.putClock}>Clock Out</Button></div>
                             </div>
                         </Jumbotron>
                     </div>
                     <Card className="card-set">
                         <CardBody className="card-body-set">
                             <p className="fw-bold fs-5 text-center">Attendance Log</p>
-                            <AttendanceLog />
+                                <AttendanceLog />
                         </CardBody>
                     </Card>
             </>
