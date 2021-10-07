@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import JumbotronComponent  from '../Components/JumbotronComponent';
+import { JumbotronComponent }  from '../Components/JumbotronComponent';
 import { NavbarComponent } from '../Components';
-import { Container } from 'reactstrap';
 import TableContainer from '../Containers/TableContainer';
+import TableAbsentContainer from '../Containers/TableAbsentContainer';
 
 
 class Admin extends Component {
@@ -13,6 +13,7 @@ class Admin extends Component {
           <NavbarComponent/>
           <JumbotronComponent /> 
           <TableContainer />
+          <TableAbsentContainer />
       </div>
 
     )
