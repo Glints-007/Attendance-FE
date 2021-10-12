@@ -4,6 +4,7 @@ import { Row, Col, Card, Container} from 'reactstrap';
 import { connect } from 'react-redux';
 import { authHeader } from '../Helpers';
 import axios from 'axios';
+import moment from 'moment';
 
 class AttendanceLog extends Component {
 
@@ -45,19 +46,20 @@ class AttendanceLog extends Component {
                         <Col>
                             <div className="card-log">
                                 <div className="card-log-text">
-                                    <h6 className="text-center">{log.created_at}</h6>
+                                    <h1 className="fw-bold text-center">{moment(log.created_at).format("DD")}</h1>
+                                    <h6 className="fw-bold text-center">{moment(log.created_at).format("ddd, MMM YY")}</h6>
                                 </div>
                             </div>
                         </Col>
                         <Col className="align-self-center">
                             <div className="text-center">
-                                <p className="fs-7 text-margin">Clock In</p>
+                                <p className="fs-7 text-margin fw-bold">Clock In</p>
                                 <p className="fs-5 text-margin">{log.clock_in}</p>
                             </div>
                         </Col>
                         <Col className="align-self-center">
                             <div className="text-center">
-                                <p className="fs-7 text-margin">Clock Out</p>
+                                <p className="fs-7 text-margin fw-bold">Clock Out</p>
                                 <p className="fs-5 text-margin">{log.clock_out}</p>
                             </div>
                         </Col>
